@@ -10,8 +10,28 @@ import Icons from "@/pages/Icons.vue";
 import Maps from "@/pages/Maps.vue";
 import Typography from "@/pages/Typography.vue";
 import TableList from "@/pages/TableList.vue";
+import Auth from "@/pages/Auth.vue";
+import AuthLogin from "@/pages/Auth/AuthLogin.vue";
+import AuthRegister from "@/pages/Auth/AuthRegister.vue";
 
 const routes = [
+  {
+    path: '/auth',
+    component: Auth,
+    redirect: "/auth/login",
+    children: [
+      {
+        path: "login",
+        name: "login",
+        component: AuthLogin
+      },
+      {
+        path: "register",
+        name: "register",
+        component: AuthRegister
+      }
+    ]
+  },
   {
     path: "/",
     component: DashboardLayout,
